@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>TestReactLocalhost</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+    integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <style>
+    #button2{
+   border-color:black;
+   border-style: solid;
+   color: blue; 
+   border-radius: 4px;
+ }
+ #button1:active{
+   color: black;
+   border-style: solid;
+ }
+ #button2:hover{
+    background-color: rgb(145, 145, 221);
+    box-shadow: rgb(131, 131, 208);
+ }
+
+ #button1{
+  
+  border-color: black;
+   border-radius: 4px;
+
+ }
+ #button1 :hover{
+  border-color: black;
+  border-radius: 4px;
+ }
+
+.temp{
+ font-size: 85px;
+}
+#dataheader{
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+<body >
+  <div class="weatherDataNavBar"></div>
+  <!-- <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg  navbar-light bg-light row">
+
+
+  
+      <div class="col-9 col-xs-1 my-1 mx-0 no-gutters">
+        <a class="navbar-brand ml-lg-3 ml-xl-5 mr-sm-5 no-gutters" href="#">The Weather Page</a>
+
+      </div>
+
+
+
+
+      <button class="navbar-toggler btn btn-outline-success col-xs-3" id="button1" type="button"
+        data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+
+        <svg xmlns="http://www.w3.org/2000/svg" height="30" width="38" viewBox="0 0 128 128">
+          <g>
+            <path id="path1" transform="rotate(90,64,64) translate(30.0011733402504,30) scale(2.12493337899701,2.12493337899701)  "
+              fill="#262626" d="M11.170988,2.0000026C6.1139962,2.0000026 1.9999944,6.1120075 1.9999944,11.16603 1.9999944,16.219991 6.1139962,20.331996 11.170988,20.331996 16.227981,20.331996 20.341006,16.219991 20.341006,11.16603 20.341006,6.1120075 16.227981,2.0000026 11.170988,2.0000026z M11.170988,0C17.33003,0 22.341001,5.0089787 22.341001,11.16603 22.341001,13.76351 21.449155,16.156669 19.95551,18.055608L19.942527,18.071714 31.999898,30.615001 30.5589,32.001003 18.567029,19.525854 18.476871,19.605846C16.516895,21.303544 13.961804,22.332 11.170988,22.332 5.0119487,22.332 1.6168633E-07,17.32302 0,11.16603 1.6168633E-07,5.0089787 5.0119487,0 11.170988,0z" />
+          </g>
+        </svg>
+
+      </button>
+
+      <div class="collapse navbar-collapse col-xl-3 my-1   " id="navbarSupportedContent">
+
+        <form class="form-group row my-1 ">
+
+          <input class="form-control mx-sm-1 mx-md-1 col-xl-8" type="search" placeholder="Search"
+            aria-label="Search" id="input">
+
+          <button class="btn btn-outline-success my-1 my-sm-1  my-lg-0 py-0 ml-sm-1  mr-xl-0 d-none d-xl-block  "
+            id="button2" type="button"  onclick="onButtonClick()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 48 48">
+              <g>
+                <path id="path1" transform="rotate(90,24,24) translate(11.0004486300958,11) scale(0.812474527263561,0.812474527263561)  "
+                  fill="#000000" d="M11.170988,2.0000026C6.1139962,2.0000026 1.9999944,6.1120075 1.9999944,11.16603 1.9999944,16.219991 6.1139962,20.331996 11.170988,20.331996 16.227981,20.331996 20.341006,16.219991 20.341006,11.16603 20.341006,6.1120075 16.227981,2.0000026 11.170988,2.0000026z M11.170988,0C17.33003,0 22.341001,5.0089787 22.341001,11.16603 22.341001,13.76351 21.449155,16.156669 19.95551,18.055608L19.942527,18.071714 31.999898,30.615001 30.5589,32.001003 18.567029,19.525854 18.476871,19.605846C16.516895,21.303544 13.961804,22.332 11.170988,22.332 5.0119487,22.332 1.6168633E-07,17.32302 0,11.16603 1.6168633E-07,5.0089787 5.0119487,0 11.170988,0z" />
+              </g>
+            </svg>
+          </button>
+
+        </form>
+
+
+      </div>
+
+    </nav>
+  </div>  -->
+
+   <div id="WeatherDataHeader">
+     
+   </div>
+
+   <div id="root"></div>
+    <script src="ass.js" type="text/babel" >
+   
+    </script>
+
+
+    
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

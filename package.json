@@ -1,0 +1,23 @@
+{
+  "name": "font-end-web-reactjs-boostrap-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyhomie66/Font-End-Web-Reactjs-Boostrap-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huyhomie66/Font-End-Web-Reactjs-Boostrap-assignment/issues"
+  },
+  "homepage": "https://github.com/huyhomie66/Font-End-Web-Reactjs-Boostrap-assignment#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "inpress": "0.0.1-alpha2"
+  }
+}
