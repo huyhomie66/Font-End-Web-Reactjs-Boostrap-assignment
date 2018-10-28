@@ -18,7 +18,7 @@
           white-space: nowrap;
           padding: 0px;
           margin-left: 2px;
-          /* height: 200px; */
+        height: 200px;
           background-color: #7777ff8c
       }
       
@@ -42,16 +42,17 @@
           cursor: pointer;
       }
       #button1{
-        background-color: white;
-        padding-inline-end: 150px;
-        padding-left: 50px;
+        background-color: white; 
         border-color: none;
         border-radius: 100px;
         border-width: 0;
+        margin-left: 145px;
+       
+       
       }
       #button2{
         background-color: white;
-        margin-left: 0px;
+        margin-right: 150px;
         border-radius: 100px;
         border-width: 0;
    
@@ -62,13 +63,98 @@
       }
       ::-webkit-scrollbar{width:2px;height:2px;}
       ::-webkit-scrollbar-button{width:2px;height:2px;}
+      @media only screen and (max-width: 1270px) {
+        #button2{
+          margin-right: 100px;
+       
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        #button2{
+          margin-right: 100px;
+     
+        }
+      }
+      @media only screen and (max-width: 800px) {
+        #button2{
+          margin-right:  80px;
+    
+        
+        }
+      }
+      @media only screen and (max-width: 750px) {
+        #button2{
+          margin-right:  75px;
+  
+        
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        #button2{
+          margin-right:  70px;
+      
+        
+        }
+      }
+      @media only screen and (max-width: 1270px) {
+        #button1{
+          margin-left: 100px;
+       
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        #button1{
+          margin-left: 90px;
+     
+        }
+      }
+      @media only screen and (max-width: 800px) {
+        #button1{
+          margin-left:  80px;
+    
+        
+        }
+      }
+      @media only screen and (max-width: 750px) {
+        #button1{
+          margin-left:  75px;
+  
+        
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        #button1{
+          margin-left:  70px;
+      
+        
+        }
+      }
+      @media only screen and (min-width: 650) {
+        #button1{
+          display: block;
+          margin-left: 50px;
+        
+        }
+
+      }
+      @media only screen and (max-width: 550) {
+        #button1{
+          margin-left: 10px;
+       
+        }
+
+      }
+   
+     
+
       </style>
   </head>
 
   <body id="body">
     <div class="row d-flex align-items-center mx-auto px-auto">
+
       <div class="col-2 ">
-        <button onClick="scrollleft()" class="" id="button1">
+        <button onClick="scrollleft()" class="d-none d-md-block" id="button1">
           <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
             <g>
               <path id="path1" transform="rotate(360,24,24) translate(15.8657012209571,9) scale(-0.937617193654483,0.937617193654483)  "
@@ -76,21 +162,20 @@
             </g>
           </svg>
         </button>
-        <!-- <svg class="" xmlns="http://www.w3.org/2000/svg" onClick="scrollleft()" height="24" width="24"
-          viewBox="0 0 24 24">
-          <g>
-            <path id="path1" transform="rotate(0,12,12) translate(2.50499939918518,0) scale(0.75,0.75)  "
-              fill="#FFFFFF" d="M25.320001,0L25.320001,32 0,16z" />
-          </g>
-        </svg> -->
-      </div>
-      <div class="col-8">
-        <h5>Daily</h5>
-        <div class="live__scroll no-gutters " id="horizon">
 
-          <div class="row text-center justify-content-center no-gutters">
+      </div>
+      <div class="col-8 ">
+        <h5>Daily</h5>
+        <div class="live__scroll no-gutters  " id="horizon">
+
+          <div class="row text-center justify-content-center no-gutters ">
             <div class="col-8">
-              <div class="live__scroll--box align-self-baseline">2</div>
+              <div class="live__scroll--box align-self-baseline no-gutters">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+              </div>
               <div class="live__scroll--box align-self-baseline">2</div>
               <div class="live__scroll--box align-self-baseline">2</div>
               <div class="live__scroll--box align-self-baseline">2</div>
@@ -104,9 +189,9 @@
 
         </div>
       </div>
-      <div class="col-2">
-        </button>
-        <button onClick="scrollright()" class="" id="button2">
+      <div class="col-2 ">
+
+        <button onClick="scrollright()" class="d-none d-xl-block" id="button2">
           <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
             <g>
               <path id="path1" transform="rotate(0,24,24) translate(15.8657012209571,9) scale(0.937617193654483,0.937617193654483)  "
@@ -115,14 +200,9 @@
           </svg>
 
         </button>
-        <!-- <svg class="" xmlns="http://www.w3.org/2000/svg" onClick="scrollright()" height="24"
-          width="24" viewBox="0 0 24 24">
-          <g>
-            <path id="path1" transform="rotate(0,12,12) translate(2.55224990844727,0) scale(0.75,0.75)  "
-              fill="#FFFFFF" d="M0,0L25.194,16 0,32z" />
-          </g>
-        </svg> -->
+
       </div>
+
 
     </div>
 

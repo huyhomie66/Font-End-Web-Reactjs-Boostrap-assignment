@@ -123,11 +123,91 @@ function WeatherDataHeader(props) {
   );
 
 }
+function dataDaily(props) {
+  var linkIcon = "https://www.weatherbit.io/static/img/icons/" + props.Icon + ".png";
+  <div className="live__scroll--box align-self-baseline no-gutters">
+    <div className="col">{prop.Mon} {prop.Day}</div>
+    <div className="col"><img alt="icon list" src={linkIcon}/></div>
+    <div className="col">{props.Temp}</div>
+    <div className="col">{props.Description}</div>
+  </div>
+}
+function WeatherDataDaily(props) {
+  function scrollleft(props) {
+    props._scrollleft();
+  }
+  function scrollright(props) {
+    props._scrollright();
+  }
+  <div className="row d-flex align-items-center mx-auto px-auto">
 
+    <div className="col-2 ">
+      <button onClick={scrollleft} className="d-none d-md-block" id="button1">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+          <g>
+            <path id="path1" transform="rotate(360,24,24) translate(15.8657012209571,9) scale(-0.937617193654483,0.937617193654483)  "
+              fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+          </g>
+        </svg>
+      </button>
+
+    </div>
+    <div className="col-8 ">
+      <h5>Daily</h5>
+      <div className="live__scroll no-gutters  " id="horizon">
+
+        <div className="row text-center justify-content-center no-gutters ">
+          <div className="col-8">
+            <dataDaily Icon={props.icon} Mon={props.mon} Day={props.day}  Temp={props.temp} Description={props.description} />
+            {/* <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
+            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} /> */}
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div className="col-2 ">
+
+      <button onClick={scrollright} className="d-none d-xl-block" id="button2">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+          <g>
+            <path id="path1" transform="rotate(0,24,24) translate(15.8657012209571,9) scale(0.937617193654483,0.937617193654483)  "
+              fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+          </g>
+        </svg>
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+}
 
 class WeatherAppMain extends React.Component {
   constructor(props) {
     super(props);
+    var d = new Date();
+    
+    var day = ["Monday", "Tuesday", "Wendesday", "Friday", "Saturday", "Sunday"];
+    var DayinWeek = day[d.getDay()];
     this.state = ({
       dataday: [],
       cityname: "Hanoi",
@@ -136,6 +216,7 @@ class WeatherAppMain extends React.Component {
       FeelLike: 0,
       Wind: 0,
       Vi: 0,
+      Day_InWeek: DayinWeek,
       weather: [],
       Barometer: 0,
       Humidity: 0,
@@ -145,8 +226,10 @@ class WeatherAppMain extends React.Component {
       img: "",
       search: "",
       Country_code: "",
-      dataDaily: [],
-      dataHourly: [],
+      listicon: [],
+      listday: [],
+      listtemp: [],
+      listdescription: [],
     });
 
   }
@@ -167,9 +250,45 @@ class WeatherAppMain extends React.Component {
 
         }
       }).then(weatherData => {
+        let Listicon = weatherData.data.map(e=>{
+          return(
+            <div key = {e.datetime}>
+              {e.weather.icon}
+            </div>
+          )
+        })
+        let Listday = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.datetime}
+            </div>
+          )
+          
+        })
+        let Listtemp = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.temp}
+            </div>
+          )
+          
+        })
+        let Listdescription = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.weather.description}
+            </div>
+          )
+          
+        })
+        
         this.setState(
           {
-            weather: weatherData
+            weather: weatherData,
+            listday: Listday,
+            listicon : Listicon,
+            listtemp : Listtemp,
+            listdescription : Listdescription
 
           }
         )
@@ -281,8 +400,44 @@ class WeatherAppMain extends React.Component {
           alert("Error" + result.statusText);
         }
       }).then(weatherData => {
+        let Listicon = weatherData.data.map(e=>{
+          return(
+            <div key = {e.datetime}>
+              {e.weather.icon}
+            </div>
+          )
+        })
+        let Listday = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.datetime}
+            </div>
+          )
+          
+        })
+        let Listtemp = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.temp}
+            </div>
+          )
+          
+        })
+        let Listdescription = weatherData.data.map(e =>{
+          return(
+            <div key = {e.datetime}>
+            {e.weather.description}
+            </div>
+          )
+          
+        })
         this.setState({
-          weather: weatherData
+          weather: weatherData,
+          listday: Listday,
+          listicon : Listicon,
+          listtemp : Listtemp,
+          listdescription : Listdescription
+
 
         })
       })
@@ -379,7 +534,15 @@ class WeatherAppMain extends React.Component {
   onChangez = (value) => {
     this.setState({ search: value })
   }
+  Scrollleft = () => {
+    var elmnt = document.getElementById("horizon");
+    elmnt.scrollLeft = elmnt.scrollLeft - 100;
+  }
 
+  scrollright = () => {
+    var elmnt = document.getElementById("horizon");
+    elmnt.scrollLeft = elmnt.scrollLeft + 100;
+  }
   render() {
 
     console.log("xx");
@@ -402,6 +565,7 @@ class WeatherAppMain extends React.Component {
           Barometer={this.state.weather.data[0].pres}
           Humidity={this.state.weather.data[0].rh}
           DewPoint={this.state.weather.data[0].dewpt} />
+          <WeatherDataDaily _scrollleft={this.Scrollleft} _scrollright={this.scrollright} icon = {this.state.listicon[0]} mon= {this.state.Day_InWeek[0]} day={this.state.listday[0]} temp={this.state.listtemp[0]} description={this.state.listdescription[0]} />
       </div>
     );
   }

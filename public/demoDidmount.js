@@ -31,6 +31,7 @@ class Weather extends React.Component {
                       </div>
                   )
               })
+              
 
               this.setState({
                   cityWeatherDaily: dailyWeathers
