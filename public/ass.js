@@ -123,90 +123,116 @@ function WeatherDataHeader(props) {
   );
 
 }
-function dataDaily(props) {
-  var linkIcon = "https://www.weatherbit.io/static/img/icons/" + props.Icon + ".png";
-  <div className="live__scroll--box align-self-baseline no-gutters">
-    <div className="col">{prop.Mon} {prop.Day}</div>
-    <div className="col"><img alt="icon list" src={linkIcon}/></div>
-    <div className="col">{props.Temp}</div>
-    <div className="col">{props.Description}</div>
-  </div>
-}
+
 function WeatherDataDaily(props) {
-  function scrollleft(props) {
+
+  function scrollleft() {
     props._scrollleft();
   }
-  function scrollright(props) {
+  function scrollright() {
     props._scrollright();
   }
-  <div className="row d-flex align-items-center mx-auto px-auto">
+  var linkIcon = "https://www.weatherbit.io/static/img/icons/" + props.icon + ".png";
+  return (
+    <div className="row d-flex align-items-center mx-auto px-auto">
 
-    <div className="col-2 ">
-      <button onClick={scrollleft} className="d-none d-md-block" id="button1">
-        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
-          <g>
-            <path id="path1" transform="rotate(360,24,24) translate(15.8657012209571,9) scale(-0.937617193654483,0.937617193654483)  "
-              fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
-          </g>
-        </svg>
-      </button>
+      <div className="col-2 ">
 
-    </div>
-    <div className="col-8 ">
-      <h5>Daily</h5>
-      <div className="live__scroll no-gutters  " id="horizon">
+        <div onClick={scrollleft} className="d-none d-md-block" id="Button1">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+            <g>
+              <path id="path1" transform="rotate(360,24,24) translate(15.8657012209571,9) scale(-0.937617193654483,0.937617193654483)  "
+                fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+            </g>
+          </svg>
+        </div>
 
-        <div className="row text-center justify-content-center no-gutters ">
-          <div className="col-8">
-            <dataDaily Icon={props.icon} Mon={props.mon} Day={props.day}  Temp={props.temp} Description={props.description} />
-            {/* <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} />
-            <dataDaily Mon={props.mon} Day={props.day} Icon={props.icon} Temp={props.temp} Description={props.description} /> */}
+      </div>
+      <div className="col-8 ">
+        <h5>Daily</h5>
+        <div className="live__scroll no-gutters " id="horizon">
+
+          <div className="row text-center justify-content-center no-gutters ">
+            <div className="col-8">
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon}/> </div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+              <div className="live__scroll--box align-self-baseline no-gutters">
+                <div className="col">{props.mon} {props.day}</div>
+                <div className="col"><img alt="icon list" src={linkIcon} /></div>
+                <div className="col">{props.temp}</div>
+                <div className="col">{props.description}</div>
+              </div>
+            </div>
 
           </div>
 
         </div>
+      </div>
+      <div className="col-2 ">
+
+        <div onClick={scrollright} className="d-none d-xl-block" id="Button2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+            <g>
+              <path id="path1" transform="rotate(0,24,24) translate(15.8657012209571,9) scale(0.937617193654483,0.937617193654483)  "
+                fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+            </g>
+          </svg>
+
+        </div>
 
       </div>
-    </div>
-    <div className="col-2 ">
 
-      <button onClick={scrollright} className="d-none d-xl-block" id="button2">
-        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
-          <g>
-            <path id="path1" transform="rotate(0,24,24) translate(15.8657012209571,9) scale(0.937617193654483,0.937617193654483)  "
-              fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
-          </g>
-        </svg>
-
-      </button>
 
     </div>
-
-
-  </div>
-
+  );
 }
 
 class WeatherAppMain extends React.Component {
   constructor(props) {
     super(props);
     var d = new Date();
-    
-    var day = ["Monday", "Tuesday", "Wendesday", "Friday", "Saturday", "Sunday"];
+
+    var day = ["Monday", "Tuesday", "Wendesday", "Thursday","Friday", "Saturday", "Sunday"];
     var DayinWeek = day[d.getDay()];
     this.state = ({
       dataday: [],
@@ -226,9 +252,9 @@ class WeatherAppMain extends React.Component {
       img: "",
       search: "",
       Country_code: "",
-      listicon: [],
+      listicon: "",
       listday: [],
-      listtemp: [],
+      listtemp: 0,
       listdescription: [],
     });
 
@@ -250,48 +276,48 @@ class WeatherAppMain extends React.Component {
 
         }
       }).then(weatherData => {
-        let Listicon = weatherData.data.map(e=>{
-          return(
-            <div key = {e.datetime}>
-              {e.weather.icon}
+        let Listicon = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3>  {e.weather.icon}</h3>
             </div>
           )
         })
-        let Listday = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.datetime}
+        let Listday = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3> {e.datetime}</h3>
             </div>
           )
-          
+
         })
-        let Listtemp = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.temp}
+        let Listtemp = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3>{e.temp}</h3>
             </div>
           )
-          
+
         })
-        let Listdescription = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.weather.description}
+        let Listdescription = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3>  {e.weather.description}</h3>
             </div>
           )
-          
+
         })
-        
+
         this.setState(
           {
             weather: weatherData,
             listday: Listday,
-            listicon : Listicon,
-            listtemp : Listtemp,
-            listdescription : Listdescription
+            listicon: Listicon,
+            listtemp: Listtemp,
+            listdescription: Listdescription
 
           }
-        )
+        );
         if (this.state.weather.data[0].weather.code === 801) {
           document.body.style.backgroundImage = "url('./Photo-Background/801.jpg')";
         }
@@ -400,46 +426,46 @@ class WeatherAppMain extends React.Component {
           alert("Error" + result.statusText);
         }
       }).then(weatherData => {
-        let Listicon = weatherData.data.map(e=>{
-          return(
-            <div key = {e.datetime}>
-              {e.weather.icon}
+        let Listicon = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3>{e.weather.icon}</h3>
             </div>
           )
         })
-        let Listday = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.datetime}
+        let Listday = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3>   {e.datetime} </h3>
             </div>
           )
-          
+
         })
-        let Listtemp = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.temp}
+        let Listtemp = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              {e.temp}
             </div>
           )
-          
+
         })
-        let Listdescription = weatherData.data.map(e =>{
-          return(
-            <div key = {e.datetime}>
-            {e.weather.description}
+        let Listdescription = weatherData.data.map(e => {
+          return (
+            <div key={e.datetime}>
+              <h3> {e.weather.description}</h3>
             </div>
           )
-          
+
         })
         this.setState({
           weather: weatherData,
           listday: Listday,
-          listicon : Listicon,
-          listtemp : Listtemp,
-          listdescription : Listdescription
+          listicon: Listicon,
+          listtemp: Listtemp,
+          listdescription: Listdescription
 
 
-        })
+        });
       })
       console.log(this.state.weather.data[0].weather.code)
       if (this.state.weather.data[0].weather.code === 801) {
@@ -534,12 +560,12 @@ class WeatherAppMain extends React.Component {
   onChangez = (value) => {
     this.setState({ search: value })
   }
-  Scrollleft = () => {
+  scrollleft() {
     var elmnt = document.getElementById("horizon");
     elmnt.scrollLeft = elmnt.scrollLeft - 100;
   }
 
-  scrollright = () => {
+  scrollright() {
     var elmnt = document.getElementById("horizon");
     elmnt.scrollLeft = elmnt.scrollLeft + 100;
   }
@@ -549,6 +575,11 @@ class WeatherAppMain extends React.Component {
     if (this.state.weather.length == 0) {
       return (<div></div>);
     }
+    if (this.state.listday.length == 0) {
+      return (<div>fuck</div>);
+    }
+    console.log(this.state.listicon[0])
+    console.log(this.state.listtemp)
     return (
       <div>
 
@@ -565,7 +596,7 @@ class WeatherAppMain extends React.Component {
           Barometer={this.state.weather.data[0].pres}
           Humidity={this.state.weather.data[0].rh}
           DewPoint={this.state.weather.data[0].dewpt} />
-          <WeatherDataDaily _scrollleft={this.Scrollleft} _scrollright={this.scrollright} icon = {this.state.listicon[0]} mon= {this.state.Day_InWeek[0]} day={this.state.listday[0]} temp={this.state.listtemp[0]} description={this.state.listdescription[0]} />
+        <WeatherDataDaily _scrollleft={this.scrollleft} _scrollright={this.scrollright} icon={this.state.weather.data[0].weather.icon} mon={this.state.Day_InWeek} day={this.state.listday[0]} temp={this.state.listtemp[0]} description={this.state.listdescription[0]} />
       </div>
     );
   }
