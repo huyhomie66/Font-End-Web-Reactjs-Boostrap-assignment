@@ -26,7 +26,7 @@
           display: block;
       }
       #body{
-        background-color: black;
+        background-color: white;
       }
       .buttonscr{
         cursor: pointer !important
@@ -41,6 +41,25 @@
           margin-bottom: 0px;
           cursor: pointer;
       }
+      #button1{
+        background-color: white;
+        padding-inline-end: 150px;
+        padding-left: 50px;
+        border-color: none;
+        border-radius: 100px;
+        border-width: 0;
+      }
+      #button2{
+        background-color: white;
+        margin-left: 0px;
+        border-radius: 100px;
+        border-width: 0;
+   
+      }
+      #button2 :hover{
+        border-radius: 100px;
+      border-color: black; 
+      }
       ::-webkit-scrollbar{width:2px;height:2px;}
       ::-webkit-scrollbar-button{width:2px;height:2px;}
       </style>
@@ -48,21 +67,29 @@
 
   <body id="body">
     <div class="row d-flex align-items-center mx-auto px-auto">
-      <div class="col">
-        <svg className="d-inline col-2 buttonscr px-0 py-0 mx-0 py-0" xmlns="http://www.w3.org/2000/svg"
-          onClick="scrollleft()" height="24" width="24" viewBox="0 0 24 24">
+      <div class="col-2 ">
+        <button onClick="scrollleft()" class="" id="button1">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+            <g>
+              <path id="path1" transform="rotate(360,24,24) translate(15.8657012209571,9) scale(-0.937617193654483,0.937617193654483)  "
+                fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+            </g>
+          </svg>
+        </button>
+        <!-- <svg class="" xmlns="http://www.w3.org/2000/svg" onClick="scrollleft()" height="24" width="24"
+          viewBox="0 0 24 24">
           <g>
             <path id="path1" transform="rotate(0,12,12) translate(2.50499939918518,0) scale(0.75,0.75)  "
               fill="#FFFFFF" d="M25.320001,0L25.320001,32 0,16z" />
           </g>
-        </svg>
+        </svg> -->
       </div>
-      <div class="col">
+      <div class="col-8">
         <h5>Daily</h5>
-        <div class="live__scroll no-gutters container" id="horizon">
+        <div class="live__scroll no-gutters " id="horizon">
 
           <div class="row text-center justify-content-center no-gutters">
-            <div class="col">
+            <div class="col-8">
               <div class="live__scroll--box align-self-baseline">2</div>
               <div class="live__scroll--box align-self-baseline">2</div>
               <div class="live__scroll--box align-self-baseline">2</div>
@@ -74,16 +101,27 @@
             </div>
 
           </div>
+
         </div>
       </div>
-      <div class="col">
-        <svg class="d-inline col-2 buttonscr px-0 py-0 mx-0 py-0" xmlns="http://www.w3.org/2000/svg"
-          onClick="scrollright()" height="24" width="24" viewBox="0 0 24 24">
+      <div class="col-2">
+        </button>
+        <button onClick="scrollright()" class="" id="button2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 25 48">
+            <g>
+              <path id="path1" transform="rotate(0,24,24) translate(15.8657012209571,9) scale(0.937617193654483,0.937617193654483)  "
+                fill="#696969" d="M1.4200482,0L17.351001,16.046996 1.4980513,31.996001 0.078979631,30.585997 14.531046,16.046019 0,1.4089964z" />
+            </g>
+          </svg>
+
+        </button>
+        <!-- <svg class="" xmlns="http://www.w3.org/2000/svg" onClick="scrollright()" height="24"
+          width="24" viewBox="0 0 24 24">
           <g>
             <path id="path1" transform="rotate(0,12,12) translate(2.55224990844727,0) scale(0.75,0.75)  "
               fill="#FFFFFF" d="M0,0L25.194,16 0,32z" />
           </g>
-        </svg>
+        </svg> -->
       </div>
 
     </div>

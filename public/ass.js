@@ -1,6 +1,6 @@
 
 function NavBar(props) {
-  function onChangez(e){
+  function onChangez(e) {
     props._onChange(e.target.value);
   }
   function _onClick() {
@@ -87,14 +87,14 @@ function WeatherDataHeader(props) {
         <div className="row">
 
           <div className="col">
-            <img alt="Responsive image" src={linkicon} /> <h2 className="temp mt-0  " id="dataheader">{props.Temp} <span style={tempStyle}>ºC</span></h2>
+            <h4 className="temp my-1 " id="dataheader">    <img alt="Responsive image" className="img" src={linkicon} /> {props.Temp} <span style={tempStyle}>ºc</span></h4>
           </div>
 
         </div>
 
         <div className="row">
           <div className="col col-xs-1">
-            <h2 id="dataheader" className="mt-3" >{props.Descreption}</h2>
+            <h2 id="dataheader" className="mt-1" >{props.Descreption}</h2>
           </div>
 
         </div>
@@ -143,12 +143,12 @@ class WeatherAppMain extends React.Component {
       DateTime: "",
       Icon: "",
       img: "",
-      search : "",
+      search: "",
       Country_code: "",
       dataDaily: [],
       dataHourly: [],
     });
-  
+
   }
   NumberFormat = (number) => {
     number = "0" + number;
@@ -164,18 +164,101 @@ class WeatherAppMain extends React.Component {
           return result.json();
         }
         else {
-          
+
         }
       }).then(weatherData => {
         this.setState(
           {
             weather: weatherData
-          
+
           }
         )
-        // if (this.state.weather.data[0].code === "200") {
-        //   // document.body.style.backgroundImage = "url('img_tree.png')";
-        // }
+        if (this.state.weather.data[0].weather.code === 801) {
+          document.body.style.backgroundImage = "url('./Photo-Background/801.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 202 || this.state.weather.data[0].weather.code == 201 || this.state.weather.data[0].weather.code == 202) {
+          document.body.style.backgroundImage = "url('./Photo-Background/200-202.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 230 || this.state.weather.data[0].weather.code === 231 || this.state.weather.data[0].weather.code === 232 || this.state.weather.data[0].weather.code === 233) {
+          document.body.style.backgroundImage = "url('./Photo-Background/230-233.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 500 || this.state.weather.data[0].weather.code === 501 || this.state.weather.data[0].weather.code === 502) {
+          document.body.style.backgroundImage = "url('./Photo-Background/500-502.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 511) {
+          document.body.style.backgroundImage = "url('./Photo-Background/511.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 520) {
+          document.body.style.backgroundImage = "url('./Photo-Background/520.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 521) {
+          document.body.style.backgroundImage = "url('./Photo-Background/521.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 522) {
+          document.body.style.backgroundImage = "url('./Photo-Background/522.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 600) {
+          document.body.style.backgroundImage = "url('./Photo-Background/600.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 601) {
+          document.body.style.backgroundImage = "url('./Photo-Background/601.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 602) {
+          document.body.style.backgroundImage = "url('./Photo-Background/602.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 610) {
+          document.body.style.backgroundImage = "url('./Photo-Background/610.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 611) {
+          document.body.style.backgroundImage = "url('./Photo-Background/611.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 612) {
+          document.body.style.backgroundImage = "url('./Photo-Background/612.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 621) {
+          document.body.style.backgroundImage = "url('./Photo-Background/621.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 622) {
+          document.body.style.backgroundImage = "url('./Photo-Background/622.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 623) {
+          document.body.style.backgroundImage = "url('./Photo-Background/623.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 700) {
+          document.body.style.backgroundImage = "url('./Photo-Background/700.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 711) {
+          document.body.style.backgroundImage = "url('./Photo-Background/711.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 721) {
+          document.body.style.backgroundImage = "url('./Photo-Background/721.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 731) {
+          document.body.style.backgroundImage = "url('./Photo-Background/731.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 741) {
+          document.body.style.backgroundImage = "url('./Photo-Background/741.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 751) {
+          document.body.style.backgroundImage = "url('./Photo-Background/751.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 800) {
+          document.body.style.backgroundImage = "url('./Photo-Background/801.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 802) {
+          document.body.style.backgroundImage = "url('./Photo-Background/802.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 803) {
+          document.body.style.backgroundImage = "url('./Photo-Background/803.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 804) {
+          document.body.style.backgroundImage = "url('./Photo-Background/804.jpg')";
+        }
+        else if (this.state.weather.data[0].weather.code === 900) {
+          document.body.style.backgroundImage = "url('./Photo-Background/900.jpg')";
+        }
+
+
 
       })
   }
@@ -183,163 +266,130 @@ class WeatherAppMain extends React.Component {
     if (value === "Enter") {
       this.setState({
         cityname: this.state.search
-    });
+      });
     }
-}
-  
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (this.state.cityname !== prevState.cityname) {
       var url = "https://api.weatherbit.io/v2.0/forecast/daily?city=" + this.state.cityname + "&key=02b62f697c6441439486b77a01b83ee4";
-       fetch(url).then(result => {
-          if (result.status == 200) {
-            return result.json();
-          }
-          else {
-            alert("Error" + result.statusText);
-          }
-        }).then(weatherData => {
-          this.setState({
-            weather: weatherData
+      fetch(url).then(result => {
+        if (result.status == 200) {
+          return result.json();
+        }
+        else {
+          alert("Error" + result.statusText);
+        }
+      }).then(weatherData => {
+        this.setState({
+          weather: weatherData
 
-          })
         })
+      })
+      console.log(this.state.weather.data[0].weather.code)
+      if (this.state.weather.data[0].weather.code === 801) {
+        document.body.style.backgroundImage = "url('./Photo-Background/801.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 202 || this.state.weather.data[0].weather.code == 201 || this.state.weather.data[0].weather.code == 202) {
+        document.body.style.backgroundImage = "url('./Photo-Background/200-202.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 230 || this.state.weather.data[0].weather.code === 231 || this.state.weather.data[0].weather.code === 232 || this.state.weather.data[0].weather.code === 233) {
+        document.body.style.backgroundImage = "url('./Photo-Background/230-233.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 500 || this.state.weather.data[0].weather.code === 501 || this.state.weather.data[0].weather.code === 502) {
+        document.body.style.backgroundImage = "url('./Photo-Background/500-502.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 511) {
+        document.body.style.backgroundImage = "url('./Photo-Background/511.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 520) {
+        document.body.style.backgroundImage = "url('./Photo-Background/520.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 521) {
+        document.body.style.backgroundImage = "url('./Photo-Background/521.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 522) {
+        document.body.style.backgroundImage = "url('./Photo-Background/522.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 600) {
+        document.body.style.backgroundImage = "url('./Photo-Background/600.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 601) {
+        document.body.style.backgroundImage = "url('./Photo-Background/601.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 602) {
+        document.body.style.backgroundImage = "url('./Photo-Background/602.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 610) {
+        document.body.style.backgroundImage = "url('./Photo-Background/610.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 611) {
+        document.body.style.backgroundImage = "url('./Photo-Background/611.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 612) {
+        document.body.style.backgroundImage = "url('./Photo-Background/612.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 621) {
+        document.body.style.backgroundImage = "url('./Photo-Background/621.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 622) {
+        document.body.style.backgroundImage = "url('./Photo-Background/622.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 623) {
+        document.body.style.backgroundImage = "url('./Photo-Background/623.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 700) {
+        document.body.style.backgroundImage = "url('./Photo-Background/700.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 711) {
+        document.body.style.backgroundImage = "url('./Photo-Background/711.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 721) {
+        document.body.style.backgroundImage = "url('./Photo-Background/721.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 731) {
+        document.body.style.backgroundImage = "url('./Photo-Background/731.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 741) {
+        document.body.style.backgroundImage = "url('./Photo-Background/741.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 751) {
+        document.body.style.backgroundImage = "url('./Photo-Background/751.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 800) {
+        document.body.style.backgroundImage = "url('./Photo-Background/801.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 802) {
+        document.body.style.backgroundImage = "url('./Photo-Background/802.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 803) {
+        document.body.style.backgroundImage = "url('./Photo-Background/803.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 804) {
+        document.body.style.backgroundImage = "url('./Photo-Background/804.jpg')";
+      }
+      if (this.state.weather.data[0].weather.code === 900) {
+        document.body.style.backgroundImage = "url('./Photo-Background/900.jpg')";
+      }
 
     }
-    
+
   }
-  // Onclick = () => {
-  //   var New_Cityname = "";
-  //   for (var i = 0; i < this.state.Cityname.length; i++) {
-  //     if (i == 0) {
-  //       New_Cityname = New_Cityname + this.state.Cityname[i].toUpperCase();
-  //     }
-  //     else {
-  //       New_Cityname = New_Cityname + this.state.Cityname[i].toLowerCase();
-  //     }
-  //   }
 
-  //   var url = "https://api.weatherbit.io/v2.0/forecast/daily?city=" + New_Cityname + "&key=02b62f697c6441439486b77a01b83ee4";
-
-  //   fetch(url)
-  //     .then(result => {
-  //       console.log(result);
-  //       if (result.status == 200) {
-  //         return result.json();
-  //       }
-  //       else {
-  //         alert("Error" + result.statusText);
-  //       }
-  //     })
-
-  //     .then(weatherData => {
-
-  //       let temp = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.temp}
-  //           </a>
-  //         )
-  //       })
-  //       let descreption = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.weather.description}
-
-  //           </a>
-
-  //         )
-  //       })
-  //       var icon = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.weather.icon}
-  //           </a>
-  //         )
-  //       })
-  //       let feellike = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.app_max_temp}
-  //           </a>
-  //         )
-  //       })
-
-  //       let wind = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.wind_gust_spd}
-  //           </a>
-  //         )
-  //       })
-
-  //       let vis = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>
-  //             {e.vis}
-  //           </a>
-  //         )
-  //       })
-  //       let barometer = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>{e.pres}</a>
-  //         )
-  //       })
-  //       let humidity = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>{e.rh}</a>
-  //         )
-  //       })
-  //       let dewpoint = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}>{e.dewpt}</a>
-  //         )
-  //       })
-  //       let datetime = weatherData.data.map(e => {
-  //         return (
-  //           <a key={e.datetime}> {e.datetime}</a>
-  //         )
-  //       })
-  //       let cityname = weatherData.city_name;
-
-  //       let countrycode = weatherData.country_code;
-  //       if (New_Cityname == weatherData.city_name) {
-
-
-  //         this.setState(
-  //           {
-  //             Cityname: cityname,
-  //             Temp: temp,
-  //             Descreption: descreption,
-  //             FeelLike: feellike,
-  //             Wind: wind,
-  //             Vi: vis,
-  //             Barometer: barometer,
-  //             Humidity: humidity,
-  //             Dewpoint: dewpoint,
-  //             DateTime: datetime,
-  //             Country_code: countrycode,
-  //             Icon: icon,
-
-  //           }
-  //         )
-  //       }
-  //     })
-  // }
   onChangez = (value) => {
-    this.setState({search: value})
+    this.setState({ search: value })
   }
-  
+
   render() {
-    
+
     console.log("xx");
-    if (this.state.weather.length == 0) 
-    {
+    if (this.state.weather.length == 0) {
       return (<div></div>);
     }
     return (
       <div>
-      
-        <NavBar _onChange={this.onChangez} onClickz={this._onClick} onKeyPressz={this.onKeyPress}/>,
+
+        <NavBar _onChange={this.onChangez} onClickz={this._onClick} onKeyPressz={this.onKeyPress} />,
         <WeatherDataHeader key={this.state.weather.data[0].valid_date}
           icon={this.state.weather.data[0].weather.icon} CityName={this.state.weather.city_name}
           CountryCode={this.state.weather.country_code}
