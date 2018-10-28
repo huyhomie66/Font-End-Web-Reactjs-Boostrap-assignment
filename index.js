@@ -3,7 +3,7 @@ var app = express();
 
 // app.use(express.static(__dirname + '/public'));
 // app.use(express.static(__dirname + '/ressources'));
-app.use(express.static("publicFormTiki"));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 // port
