@@ -123,16 +123,39 @@ function WeatherDataHeader(props) {
   );
 
 }
+function Daily(props) {
+  return (
+    <div>
+      <div className="live__scroll--box align-self-baseline no-gutters">
+        <div className="col">{props.mon[0]} {props.day[0]}</div>
+        <div className="col"><img id="img" alt="icon list" src={linkIcon} /> </div>
+        <div className="col">{props.temp}</div>
+        <div className="col">{props.description}</div>
+      </div>
+    </div>
+  );
+}
 
 function WeatherDataDaily(props) {
 
+  function Daily() {
+    var linkIcon = "https://www.weatherbit.io/static/img/icons/" + props.icon + ".png";
+    return (
+      <div className="live__scroll--box align-self-baseline no-gutters">
+        <div className="col">{props.mon} {props.day}</div>
+        <div className="col"><img id="img" alt="icon list" src={linkIcon} /> </div>
+        <div className="col">{props.temp}</div>
+        <div className="col">{props.description}</div>
+      </div>
+    );
+  }
   function scrollleft() {
     props._scrollleft();
   }
   function scrollright() {
     props._scrollright();
   }
-  var linkIcon = "https://www.weatherbit.io/static/img/icons/" + props.icon + ".png";
+
   return (
     <div className="row d-flex align-items-center mx-auto px-auto">
 
@@ -154,55 +177,9 @@ function WeatherDataDaily(props) {
 
           <div className="row text-center justify-content-center no-gutters ">
             <div className="col-8">
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon}/> </div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
-              <div className="live__scroll--box align-self-baseline no-gutters">
-                <div className="col">{props.mon} {props.day}</div>
-                <div className="col"><img alt="icon list" src={linkIcon} /></div>
-                <div className="col">{props.temp}</div>
-                <div className="col">{props.description}</div>
-              </div>
+
             </div>
+
 
           </div>
 
@@ -223,7 +200,7 @@ function WeatherDataDaily(props) {
       </div>
 
 
-    </div>
+    </div >
   );
 }
 
@@ -232,8 +209,9 @@ class WeatherAppMain extends React.Component {
     super(props);
     var d = new Date();
 
-    var day = ["Monday", "Tuesday", "Wendesday", "Thursday","Friday", "Saturday", "Sunday"];
+    var day = ["Sunday", "Monday", "Tuesday", "Wendesday", "Thursday", "Friday", "Saturday"];
     var DayinWeek = day[d.getDay()];
+    var DateInMonth = d.getUTCDate();
     this.state = ({
       dataday: [],
       cityname: "Hanoi",
@@ -242,7 +220,10 @@ class WeatherAppMain extends React.Component {
       FeelLike: 0,
       Wind: 0,
       Vi: 0,
+
       Day_InWeek: DayinWeek,
+      Date_InMonth: DateInMonth,
+      Daily: [],
       weather: [],
       Barometer: 0,
       Humidity: 0,
@@ -311,6 +292,42 @@ class WeatherAppMain extends React.Component {
         this.setState(
           {
             weather: weatherData,
+            Daily : [
+              { icon: Listicon[0] , mon : this.state.Day_InWeek[0] , day: this.state.Date_InMonth[0]  ,temp : Listtemp[0] , description: Listdescription[0] },
+              { icon: Listicon[1] , mon : this.state.Day_InWeek[1] , day: this.state.Date_InMonth[1]  ,temp : Listtemp[1] , description: Listdescription[1] },
+              { icon: Listicon[2] , mon : this.state.Day_InWeek[2] , day: this.state.Date_InMonth[2] ,temp : Listtemp[2] , description: Listdescription[2] },
+              // { icon: this.state.weather.data[3].weather.icon  , mon : this.state.Day_InWeek[3] , day: this.state.Date_InMonth[3]  ,temp : Listtemp[3] , description: Listdescription[3] },
+              // { icon: this.state.weather.data[4].weather.icon  , mon : this.state.Day_InWeek[4] , day: this.state.Date_InMonth[4] , icon: this.state.weather.data[4].weather.icon ,temp : Listtemp[4] , description: Listdescription[4] },
+              // { icon: this.state.weather.data[5].weather.icon  , mon : this.state.Day_InWeek[5] , day: this.state.Date_InMonth[5] , icon: this.state.weather.data[5].weather.icon ,temp : Listtemp[5] , description: Listdescription[5] },
+              // { icon: this.state.weather.data[6].weather.icon  , mon : this.state.Day_InWeek[6] , day: this.state.Date_InMonth[6] , icon: this.state.weather.data[6].weather.icon ,temp : Listtemp[6] , description: Listdescription[6] },
+              // { icon: this.state.weather.data[7].weather.icon  , mon : this.state.Day_InWeek[7] , day: this.state.Date_InMonth[7] , icon: this.state.weather.data[7].weather.icon ,temp : Listtemp[7] , description: Listdescription[7] },
+              // { icon: this.state.weather.data[8].weather.icon  , mon : this.state.Day_InWeek[8] , day: this.state.Date_InMonth[8] , icon: this.state.weather.data[8].weather.icon ,temp : Listtemp[8] , description: Listdescription[8] },
+              // { icon: this.state.weather.data[8].weather.icon  , mon : this.state.Day_InWeek[9] , day: this.state.Date_InMonth[9] , icon: this.state.weather.data[9].weather.icon ,temp : Listtemp[9] , description: Listdescription[9] },
+              // { icon: this.state.weather.data[10].weather.icon  , mon : this.state.Day_InWeek[10] , day: this.state.Date_InMonth[10] , icon: this.state.weather.data[10].weather.icon ,temp : Listtemp[10] , description: Listdescription[10] },
+              // { icon: this.state.weather.data[11].weather.icon  , mon : this.state.Day_InWeek[11] , day: this.state.Date_InMonth[11] , icon: this.state.weather.data[11].weather.icon ,temp : Listtemp[11] , description: Listdescription[11] },
+              // { icon: this.state.weather.data[12].weather.icon  , mon : this.state.Day_InWeek[12] , day: this.state.Date_InMonth[12] , icon: this.state.weather.data[12].weather.icon ,temp : Listtemp[12] , description: Listdescription[12] },
+              // { icon: this.state.weather.data[13].weather.icon  , mon : this.state.Day_InWeek[13] , day: this.state.Date_InMonth[13] , icon: this.state.weather.data[13].weather.icon ,temp : Listtemp[13] , description: Listdescription[13] },
+              // { icon: this.state.weather.data[14].weather.icon  , mon : this.state.Day_InWeek[14] , day: this.state.Date_InMonth[14] , icon: this.state.weather.data[14].weather.icon ,temp : Listtemp[14] , description: Listdescription[14] },
+              // { icon: this.state.weather.data[15].weather.icon  , mon : this.state.Day_InWeek[15] , day: this.state.Date_InMonth[15] , icon: this.state.weather.data[15].weather.icon ,temp : Listtemp[15] , description: Listdescription[15] },
+            ],
+            // Daily: [
+            //   { icon: Listicon[0], mon: this.state.Day_InWeek[0], day: this.state.Date_InMonth[0], icon: this.state.weather.data[0].weather.icon, temp: Listtemp[0], description: Listdescription[0] },
+            //   { icon: Listicon[1], mon: this.state.Day_InWeek[1], day: this.state.Date_InMonth[1], icon: this.state.weather.data[1].weather.icon, temp: Listtemp[1], description: Listdescription[1] },
+            //   { icon: Listicon[2], mon: this.state.Day_InWeek[2], day: this.state.Date_InMonth[2], icon: this.state.weather.data[2].weather.icon, temp: Listtemp[2], description: Listdescription[2] },
+            //   { icon: Listicon[3], mon: this.state.Day_InWeek[3], day: this.state.Date_InMonth[3], icon: this.state.weather.data[3].weather.icon, temp: Listtemp[3], description: Listdescription[3] },
+            //   { icon: Listicon[4], mon: this.state.Day_InWeek[4], day: this.state.Date_InMonth[4], icon: this.state.weather.data[4].weather.icon, temp: Listtemp[4], description: Listdescription[4] },
+            //   { icon: Listicon[5], mon: this.state.Day_InWeek[5], day: this.state.Date_InMonth[5], icon: this.state.weather.data[5].weather.icon, temp: Listtemp[5], description: Listdescription[5] },
+            //   { icon: Listicon[6], mon: this.state.Day_InWeek[6], day: this.state.Date_InMonth[6], icon: this.state.weather.data[6].weather.icon, temp: Listtemp[6], description: Listdescription[6] },
+            //   { icon: Listicon[7], mon: this.state.Day_InWeek[7], day: this.state.Date_InMonth[7], icon: this.state.weather.data[7].weather.icon, temp: Listtemp[7], description: Listdescription[7] },
+            //   { icon: Listicon[8], mon: this.state.Day_InWeek[8], day: this.state.Date_InMonth[8], icon: this.state.weather.data[8].weather.icon, temp: Listtemp[8], description: Listdescription[8] },
+            //   { icon: Listicon[9], mon: this.state.Day_InWeek[9], day: this.state.Date_InMonth[9], icon: this.state.weather.data[9].weather.icon, temp: Listtemp[9], description: Listdescription[9] },
+            //   { icon: Listicon[10], mon: this.state.Day_InWeek[10], day: this.state.Date_InMonth[10], icon: this.state.weather.data[10].weather.icon, temp: Listtemp[10], description: Listdescription[10] },
+            //   { icon: Listicon[11], mon: this.state.Day_InWeek[11], day: this.state.Date_InMonth[11], icon: this.state.weather.data[11].weather.icon, temp: Listtemp[11], description: Listdescription[11] },
+            //   { icon: Listicon[12], mon: this.state.Day_InWeek[12], day: this.state.Date_InMonth[12], icon: this.state.weather.data[12].weather.icon, temp: Listtemp[12], description: Listdescription[12] },
+            //   { icon: Listicon[13], mon: this.state.Day_InWeek[13], day: this.state.Date_InMonth[13], icon: this.state.weather.data[13].weather.icon, temp: Listtemp[13], description: Listdescription[13] },
+            //   { icon: Listicon[14], mon: this.state.Day_InWeek[14], day: this.state.Date_InMonth[14], icon: this.state.weather.data[14].weather.icon, temp: Listtemp[14], description: Listdescription[14] },
+            //   { icon: Listicon[15], mon: this.state.Day_InWeek[15], day: this.state.Date_InMonth[15], icon: this.state.weather.data[15].weather.icon, temp: Listtemp[15], description: Listdescription[15] },
+            // ],
             listday: Listday,
             listicon: Listicon,
             listtemp: Listtemp,
@@ -459,6 +476,24 @@ class WeatherAppMain extends React.Component {
         })
         this.setState({
           weather: weatherData,
+          Daily : [
+            { icon: Listicon[0] , mon : this.state.Day_InWeek[0] , day: this.state.Date_InMonth[0]  ,temp : Listtemp[0] , description: Listdescription[0] },
+            { icon: Listicon[1] , mon : this.state.Day_InWeek[1] , day: this.state.Date_InMonth[1]  ,temp : Listtemp[1] , description: Listdescription[1] },
+            { icon: Listicon[2] , mon : this.state.Day_InWeek[2] , day: this.state.Date_InMonth[2] ,temp : Listtemp[2] , description: Listdescription[2] },
+            // { icon: this.state.weather.data[3].weather.icon  , mon : this.state.Day_InWeek[3] , day: this.state.Date_InMonth[3]  ,temp : Listtemp[3] , description: Listdescription[3] },
+            // { icon: this.state.weather.data[4].weather.icon  , mon : this.state.Day_InWeek[4] , day: this.state.Date_InMonth[4] , icon: this.state.weather.data[4].weather.icon ,temp : Listtemp[4] , description: Listdescription[4] },
+            // { icon: this.state.weather.data[5].weather.icon  , mon : this.state.Day_InWeek[5] , day: this.state.Date_InMonth[5] , icon: this.state.weather.data[5].weather.icon ,temp : Listtemp[5] , description: Listdescription[5] },
+            // { icon: this.state.weather.data[6].weather.icon  , mon : this.state.Day_InWeek[6] , day: this.state.Date_InMonth[6] , icon: this.state.weather.data[6].weather.icon ,temp : Listtemp[6] , description: Listdescription[6] },
+            // { icon: this.state.weather.data[7].weather.icon  , mon : this.state.Day_InWeek[7] , day: this.state.Date_InMonth[7] , icon: this.state.weather.data[7].weather.icon ,temp : Listtemp[7] , description: Listdescription[7] },
+            // { icon: this.state.weather.data[8].weather.icon  , mon : this.state.Day_InWeek[8] , day: this.state.Date_InMonth[8] , icon: this.state.weather.data[8].weather.icon ,temp : Listtemp[8] , description: Listdescription[8] },
+            // { icon: this.state.weather.data[8].weather.icon  , mon : this.state.Day_InWeek[9] , day: this.state.Date_InMonth[9] , icon: this.state.weather.data[9].weather.icon ,temp : Listtemp[9] , description: Listdescription[9] },
+            // { icon: this.state.weather.data[10].weather.icon  , mon : this.state.Day_InWeek[10] , day: this.state.Date_InMonth[10] , icon: this.state.weather.data[10].weather.icon ,temp : Listtemp[10] , description: Listdescription[10] },
+            // { icon: this.state.weather.data[11].weather.icon  , mon : this.state.Day_InWeek[11] , day: this.state.Date_InMonth[11] , icon: this.state.weather.data[11].weather.icon ,temp : Listtemp[11] , description: Listdescription[11] },
+            // { icon: this.state.weather.data[12].weather.icon  , mon : this.state.Day_InWeek[12] , day: this.state.Date_InMonth[12] , icon: this.state.weather.data[12].weather.icon ,temp : Listtemp[12] , description: Listdescription[12] },
+            // { icon: this.state.weather.data[13].weather.icon  , mon : this.state.Day_InWeek[13] , day: this.state.Date_InMonth[13] , icon: this.state.weather.data[13].weather.icon ,temp : Listtemp[13] , description: Listdescription[13] },
+            // { icon: this.state.weather.data[14].weather.icon  , mon : this.state.Day_InWeek[14] , day: this.state.Date_InMonth[14] , icon: this.state.weather.data[14].weather.icon ,temp : Listtemp[14] , description: Listdescription[14] },
+            // { icon: this.state.weather.data[15].weather.icon  , mon : this.state.Day_InWeek[15] , day: this.state.Date_InMonth[15] , icon: this.state.weather.data[15].weather.icon ,temp : Listtemp[15] , description: Listdescription[15] },
+          ],
           listday: Listday,
           listicon: Listicon,
           listtemp: Listtemp,
@@ -580,6 +615,7 @@ class WeatherAppMain extends React.Component {
     }
     console.log(this.state.listicon[0])
     console.log(this.state.listtemp)
+
     return (
       <div>
 
@@ -596,7 +632,7 @@ class WeatherAppMain extends React.Component {
           Barometer={this.state.weather.data[0].pres}
           Humidity={this.state.weather.data[0].rh}
           DewPoint={this.state.weather.data[0].dewpt} />
-        <WeatherDataDaily _scrollleft={this.scrollleft} _scrollright={this.scrollright} icon={this.state.weather.data[0].weather.icon} mon={this.state.Day_InWeek} day={this.state.listday[0]} temp={this.state.listtemp[0]} description={this.state.listdescription[0]} />
+        <WeatherDataDaily _scrollleft={this.scrollleft} _scrollright={this.scrollright} icon={this.state.weather.data[0].weather.icon} mon={this.state.Day_InWeek} day={this.state.Date_InMonth} temp={this.state.listtemp[0]} description={this.state.listdescription[0]} />
       </div>
     );
   }
